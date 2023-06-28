@@ -6,11 +6,16 @@ async function getProjects() {
     return projects 
 }
 
-async function addProject() {
+async function addProject(project) {
     
+    const newProject = db('projects').insert(project)
+    
+    console.log(newProject)
+    return newProject
 }
 
 
 module.exports = {
-    getProjects
+    getProjects,
+    addProject
 }

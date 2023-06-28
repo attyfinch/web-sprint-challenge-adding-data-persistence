@@ -11,6 +11,15 @@ router.get('/', (req, res, next) => {
     .catch(next)
 })
 
+router.post('/', (req, res, next) => {
+    Projects.addProject(req.body)
+        .then(newProject => {
+            console.log(newProject)
+            res.status(201).json(newProject)
+        })
+        .catch(next)
+})
+
 router.use((error, req, res, next) => {
     res.status(error.status || 500).json({
         message: error.message,
