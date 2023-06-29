@@ -6,7 +6,7 @@ exports.up = async function(knex) {
   await knex.schema.createTable('projects', table => {
     table.increments('project_id')
     table.string('project_name').notNullable()
-    table.string('project_description', 256).defaultTo('Another Test')
+    table.string('project_description', 256)
     table.boolean('project_completed').defaultTo('false') // default value not appearing
   })
 
