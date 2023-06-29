@@ -19,9 +19,6 @@ router.post('/', (req, res, next) => {
         .catch(next)
 })
 
-
-
-
 router.use((error, req, res, next) => {
     res.status(error.status || 500).json({
         message: error.message,
